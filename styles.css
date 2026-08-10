@@ -296,9 +296,12 @@ p { margin: 0 0 16px; color: var(--text-muted); }
   .grid--2 { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 767px) {
+  .header__whatsapp { display: none; }
+}
+
 @media (max-width: 520px) {
   .grid--4 { grid-template-columns: 1fr; }
-  .header__whatsapp { display: none; }
   .section { padding: 64px 0; }
   .hero { padding: 64px 0 48px; }
 }
