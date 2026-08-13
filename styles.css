@@ -372,6 +372,17 @@ p { margin: 0 0 16px; color: var(--text-muted); }
   .hero--photo {
     min-height: 560px;
     padding: 100px 0 60px;
+    text-align: center;
+  }
+
+  .hero--photo .hero__inner {
+    align-items: center;
+    padding-left: 24px;
+    max-width: 100%;
+  }
+
+  .hero--photo .hero__actions {
+    justify-content: center;
   }
 
   .hero__bg { background-position: center; }
