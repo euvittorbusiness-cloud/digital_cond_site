@@ -362,6 +362,7 @@ p { margin: 0 0 16px; color: var(--text-muted); }
 
 @media (max-width: 767px) {
   .header__whatsapp { display: none; }
+  .header__inner { justify-content: center; }
 }
 
 @media (max-width: 520px) {
