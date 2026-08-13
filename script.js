@@ -6,14 +6,6 @@ window.addEventListener("scroll", () => {
     : "none";
 });
 
-const rotatingWords = [
-  "sem burocracia.",
-  "100% online.",
-  "mais acessível.",
-  "mais simples.",
-  "no seu tempo.",
-];
-
 const heroBg = document.getElementById("heroBg");
 
 if (heroBg && window.gsap && window.ScrollTrigger && window.Lenis) {
@@ -52,6 +44,7 @@ if (heroBg && window.gsap && window.ScrollTrigger && window.Lenis) {
   }, { passive: true });
 }
 
+// "O que fazemos": seção fica fixa na tela e os cards aparecem um a um conforme o scroll
 const revealCards = document.querySelectorAll(".card--reveal");
 
 if (revealCards.length && window.gsap && window.ScrollTrigger) {
@@ -59,7 +52,7 @@ if (revealCards.length && window.gsap && window.ScrollTrigger) {
 
   const revealTl = gsap.timeline({
     scrollTrigger: {
-      trigger: "#servicos",
+      trigger: "#incluso",
       start: "top top",
       end: "+=" + revealCards.length * 320,
       scrub: 0.5,
@@ -73,18 +66,17 @@ if (revealCards.length && window.gsap && window.ScrollTrigger) {
   });
 }
 
-const rotatingWordEl = document.getElementById("rotatingWord");
+// Fade-up simples ao entrar na tela, usado pelas demais seções
+const revealEls = document.querySelectorAll(".reveal");
 
-if (rotatingWordEl) {
-  let wordIndex = 0;
-
-  setInterval(() => {
-    rotatingWordEl.classList.add("is-transitioning");
-
-    setTimeout(() => {
-      wordIndex = (wordIndex + 1) % rotatingWords.length;
-      rotatingWordEl.textContent = rotatingWords[wordIndex];
-      rotatingWordEl.classList.remove("is-transitioning");
-    }, 350);
-  }, 2600);
+if (revealEls.length && window.gsap && window.ScrollTrigger) {
+  revealEls.forEach((el) => {
+    gsap.from(el, {
+      opacity: 0,
+      y: 28,
+      duration: 0.7,
+      ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 88%" },
+    });
+  });
 }
