@@ -16,7 +16,26 @@ const rotatingWords = [
 
 const heroBg = document.getElementById("heroBg");
 
-if (heroBg) {
+if (heroBg && window.gsap && window.ScrollTrigger && window.Lenis) {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  gsap.to(heroBg, {
+    yPercent: 18,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+} else if (heroBg) {
+  // Fallback sem CDN: parallax simples baseado no scroll nativo
   const parallaxFactor = 0.35;
   let ticking = false;
 
