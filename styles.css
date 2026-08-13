@@ -139,6 +139,61 @@ p { margin: 0 0 16px; color: var(--text-muted); }
   align-items: center;
 }
 
+/* Hero with photo background + parallax */
+.hero--photo {
+  padding: 0;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  color: #fff;
+}
+
+.hero__bg {
+  position: absolute;
+  top: -14%;
+  left: 0;
+  width: 100%;
+  height: 128%;
+  background-size: cover;
+  background-position: center right;
+  z-index: 0;
+  will-change: transform;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(10, 16, 24, 0.88) 0%, rgba(10, 16, 24, 0.62) 42%, rgba(10, 16, 24, 0.22) 75%);
+  z-index: 1;
+}
+
+.hero--photo .hero__inner {
+  position: relative;
+  z-index: 2;
+  align-items: flex-start;
+  max-width: 640px;
+  margin: 0;
+}
+
+.hero--photo h1 { color: #fff; }
+.hero--photo .hero__sub { color: rgba(255, 255, 255, 0.82); }
+.hero--photo .hero__actions { justify-content: flex-start; }
+
+.hero--photo .badge-pill {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+.hero--photo .btn--outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.hero--photo .btn--outline:hover { border-color: #fff; }
+
 .badge-pill {
   display: inline-flex;
   align-items: center;
@@ -304,4 +359,15 @@ p { margin: 0 0 16px; color: var(--text-muted); }
   .grid--4 { grid-template-columns: 1fr; }
   .section { padding: 64px 0; }
   .hero { padding: 64px 0 48px; }
+
+  .hero--photo {
+    min-height: 560px;
+    padding: 100px 0 60px;
+  }
+
+  .hero__bg { background-position: center; }
+
+  .hero__overlay {
+    background: linear-gradient(180deg, rgba(10, 16, 24, 0.55) 0%, rgba(10, 16, 24, 0.88) 60%, rgba(10, 16, 24, 0.94) 100%);
+  }
 }
