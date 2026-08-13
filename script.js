@@ -55,16 +55,21 @@ if (heroBg && window.gsap && window.ScrollTrigger && window.Lenis) {
 const revealCards = document.querySelectorAll(".card--reveal");
 
 if (revealCards.length && window.gsap && window.ScrollTrigger) {
-  gsap.from(revealCards, {
-    opacity: 0,
-    y: 32,
-    duration: 0.6,
-    ease: "power2.out",
-    stagger: 0.15,
+  gsap.set(revealCards, { opacity: 0, y: 40 });
+
+  const revealTl = gsap.timeline({
     scrollTrigger: {
       trigger: "#servicos",
-      start: "top 75%",
+      start: "top top",
+      end: "+=" + revealCards.length * 400,
+      scrub: 1,
+      pin: true,
+      anticipatePin: 1,
     },
+  });
+
+  revealCards.forEach((card, i) => {
+    revealTl.to(card, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, i);
   });
 }
 
