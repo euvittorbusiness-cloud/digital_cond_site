@@ -61,8 +61,8 @@ if (revealCards.length && window.gsap && window.ScrollTrigger) {
     scrollTrigger: {
       trigger: "#servicos",
       start: "top top",
-      end: "+=" + revealCards.length * 400,
-      scrub: 1,
+      end: "+=" + revealCards.length * 320,
+      scrub: 0.5,
       pin: true,
       anticipatePin: 1,
     },
