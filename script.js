@@ -52,6 +52,22 @@ if (heroBg && window.gsap && window.ScrollTrigger && window.Lenis) {
   }, { passive: true });
 }
 
+const revealCards = document.querySelectorAll(".card--reveal");
+
+if (revealCards.length && window.gsap && window.ScrollTrigger) {
+  gsap.from(revealCards, {
+    opacity: 0,
+    y: 32,
+    duration: 0.6,
+    ease: "power2.out",
+    stagger: 0.15,
+    scrollTrigger: {
+      trigger: "#servicos",
+      start: "top 75%",
+    },
+  });
+}
+
 const rotatingWordEl = document.getElementById("rotatingWord");
 
 if (rotatingWordEl) {

@@ -288,6 +288,14 @@ p { margin: 0 0 16px; color: var(--text-muted); }
   margin-bottom: 12px;
 }
 
+#servicos { text-align: center; }
+
+#servicos .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .feature {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
